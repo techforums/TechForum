@@ -1,5 +1,5 @@
 [build]
-command = "ng build --prod"
+CI='' npm run build
 publish = "dist/frontend"
 
 [redirects]
