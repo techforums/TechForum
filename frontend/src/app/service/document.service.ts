@@ -4,12 +4,13 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Document } from '../model/document';
 import { AllDocument } from '../model/all-document';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DocumentService {
-  private baseUrl = 'http://localhost:4444';
+  private baseUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) {}
 

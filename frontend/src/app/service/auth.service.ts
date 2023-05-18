@@ -5,11 +5,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { commonSnackBarConfig } from './snackbar-config.service';
 import { SigninSignupComponent } from '../layout/header/signin-signup/signin-signup.component';
 import { MatDialog } from '@angular/material/dialog';
+import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:4444';
+  private baseUrl = environment.baseUrl;
   public isSignedIn: boolean = false;
   authChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor(

@@ -4,12 +4,13 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Blog } from '../model/blog';
 import { SpecificBlog } from '../model/specific-blog';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BlogService {
-  private baseUrl = 'http://localhost:4444';
+  private baseUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) {}
 

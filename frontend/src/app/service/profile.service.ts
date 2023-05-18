@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Question } from '../model/question';
 import { Blog } from '../model/blog';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
 
-  private baseUrl = 'http://localhost:4444';
+  private baseUrl =environment.baseUrl;
   constructor(private http: HttpClient) { }
 
 getForumsById(id: string):Observable <Question> {
@@ -57,32 +58,10 @@ questionPagination(page: number, limit: number) {
   const params = new HttpParams()
     .set('page', page.toString())
     .set('limit', limit.toString());
-  return this.http.get<any>('http://localhost:4444/users/quepagination', {
+  return this.http.get<any>(`${this.baseUrl}/users/quepagination`, {
     params,
   });
 }
-
-
-
-
-
-
-// getBookmarkByUserId(userId: any) {
-//   return this.http.get<any>('http://localhost:4444/users/managebookmark/' + userId);
-// }
-
-
-// removeBookmark(questionId:string):Observable<any> {
-//   const url = `${this.baseUrl}/users/managebookmark`;
-//   return this.http.post(url, { questionId });
-// }
-
-
-
-// removeBookmark(questionId: string) {
-//   return this.http.post<any>('http://localhost:4444/users/managebookmark', {questionId});
-// }
-
 
 getDocumentById(id: any):Observable<Document[]> {
   return this.http.get<Document[]>(`${this.baseUrl}/users/documentbyuser/${id}`).pipe(

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 interface adminUserdata {
   users: any[];
 }
@@ -11,7 +12,7 @@ interface adminTagsData {
   providedIn: 'root',
 })
 export class AdminService {
-  private baseUrl = 'http://localhost:4444';
+  private baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) {}
 
   getAllUsers() {
