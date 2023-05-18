@@ -37,19 +37,19 @@ export class AdminService {
   }
 // forum
 getQuestions() {
-  return this.http.get<any>('http://localhost:4444/users/question');
+  return this.http.get<any>(`${this.baseUrl}/users/question`);
 }
 
 getAnswerById(id: any): Observable<any> {
-  return this.http.get<any>('http://localhost:4444/users/answer/' + id);
+  return this.http.get<any>(`${this.baseUrl}/users/answer/` + id);
 }
 
 deleteQuestion(id:any) {
-  return this.http.delete<any>('http://localhost:4444/users/question/'+id);
+  return this.http.delete<any>(`${this.baseUrl}/users/question/`+id);
 }
 
 deleteAnswer(id:any) {
-  return this.http.delete<any>('http://localhost:4444/users/answer/'+id);
+  return this.http.delete<any>(`${this.baseUrl}/users/answer/`+id);
 }
 
 }

@@ -42,7 +42,7 @@ export class AuthService {
     });
   }
   signIn(payload: { email: string; password: string }): Observable<any> {
-    return this.http.post(`${this.baseUrl}/users/signin`, payload);
+    return this.http.post(`${this.baseUrl}/users/signin`, payload, {withCredentials: true});
   }
 
   signUp(user: {
